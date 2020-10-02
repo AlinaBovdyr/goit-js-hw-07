@@ -1,11 +1,12 @@
 const liEls = document.querySelectorAll('.item');
-const liElQuantity = liEls.length;
+const liElsQuantity = liEls.length;
 
-console.log(`В списке ${liElQuantity} категории.`);
+console.log(`В списке ${liElsQuantity} категории.`);
 
-liEls.forEach(({ children }) => {
-  const titleEl = children[0];
-  const quantityOfEl = children[1].children.length;
+liEls.forEach(liEl => {
+  const titleEl = liEl.firstElementChild;
+  const quantityOfListEl = liEl.lastElementChild.children.length;
+
   console.log(`Категория: ${titleEl.textContent}`);
-  console.log(`Количество элементов: ${quantityOfEl}`);
+  console.log(`Количество элементов: ${quantityOfListEl}`);
 });

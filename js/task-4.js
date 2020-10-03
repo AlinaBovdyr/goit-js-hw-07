@@ -1,13 +1,31 @@
-const counter = {};
+const counter = {
+  counterValue: 0,
 
-const decrementBtn = document.querySelector('button[data-action="decrement"]');
-const incrementBtn = document.querySelector('button[data-action="increment"]');
-const valueEl = document.querySelector('#value');
+  decrement() {
+    this.counterValue -= 1;
+  },
 
-decrementBtn.addEventListener('click', event => {
-  console.log('Вешаю слушателя');
-});
+  increment() {
+    this.counterValue += 1;
+  },
+};
 
-incrementBtn.addEventListener('click', event => {
-  console.log('Вешаю слушателя');
-});
+const refs = {
+  decrementBtn: document.querySelector('button[data-action="decrement"]'),
+  incrementBtn: document.querySelector('button[data-action="increment"]'),
+  valueEl: document.querySelector('#value'),
+};
+
+refs.decrementBtn.addEventListener('click', onDecrementBtnClick);
+
+refs.incrementBtn.addEventListener('click', onIncrementBtnClick);
+
+function onDecrementBtnClick(event) {
+  counter.decrement();
+  refs.valueEl.textContent = counter.counterValue;
+}
+
+function onIncrementBtnClick(event) {
+  counter.increment();
+  refs.valueEl.textContent = counter.counterValue;
+}

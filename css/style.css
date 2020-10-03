@@ -9,13 +9,14 @@
   padding: 0;
   margin-left: 10px;
   display: flex;
+  align-items: center;
   list-style: none;
 }
 
 .img {
-  width: 250px;
-  height: 150px;
-  margin-right: 10px;
+  display: block;
+  width: 90%;
+  height: auto;
 }
 
 /* task 6 */

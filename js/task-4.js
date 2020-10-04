@@ -19,12 +19,12 @@ const refs = {
 refs.decrementBtn.addEventListener('click', onDecrementBtnClick);
 refs.incrementBtn.addEventListener('click', onIncrementBtnClick);
 
-function onDecrementBtnClick(event) {
+function onDecrementBtnClick() {
   counter.decrement();
   refs.valueEl.textContent = counter.counterValue;
 }
 
-function onIncrementBtnClick(event) {
+function onIncrementBtnClick() {
   counter.increment();
   refs.valueEl.textContent = counter.counterValue;
 }

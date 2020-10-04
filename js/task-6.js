@@ -4,11 +4,9 @@ input.addEventListener('blur', onInputBlur);
 
 function onInputBlur(event) {
   const inputLength = event.currentTarget.value.length;
-  // console.log(inputLength);
-  input.classList.add('valid');
 
-  if (inputLength > 6) {
-    input.classList.remove('valid');
-    input.classList.add('invalid');
-  } else input.classList.remove('invalid');
+  if (inputLength === Number(input.dataset.length)) {
+    input.classList.remove('invalid');
+    input.classList.add('valid');
+  } else input.classList.add('invalid');
 }

@@ -5,8 +5,9 @@ const refs = {
   divBoxes: document.querySelector('#boxes'),
 };
 
-refs.renderBtn.addEventListener('click', createBoxes);
+refs.renderBtn.addEventListener('click', onRenderBtnClick);
 refs.destroyBtn.addEventListener('click', destroyBoxes);
+refs.input.addEventListener('input', onInputEnter);
 
 function createBoxes(amount) {
   const boxEl = document.createElement('div');
@@ -16,8 +17,15 @@ function createBoxes(amount) {
   return arr;
 }
 
-console.log(createBoxes(5));
-refs.divBoxes.append(...createBoxes(5));
-console.log(refs.divBoxes);
+function onRenderBtnClick(event) {
+  refs.divBoxes.append(...createBoxes());
+  console.log(refs.divBoxes);
+}
 
 function destroyBoxes() {}
+
+function onInputEnter(event) {
+  const amount = event.currentTarget.value;
+  console.log(amount);
+  return amount;
+}

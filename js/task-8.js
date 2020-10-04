@@ -6,26 +6,34 @@ const refs = {
 };
 
 refs.renderBtn.addEventListener('click', onRenderBtnClick);
-refs.destroyBtn.addEventListener('click', destroyBoxes);
-refs.input.addEventListener('input', onInputEnter);
+refs.destroyBtn.addEventListener('click', onDestroyBtnClick);
+refs.input.addEventListener('input', onInputChange);
 
 function createBoxes(amount) {
-  const boxEl = document.createElement('div');
-  const arr = new Array(amount);
-  arr.fill(boxEl, 0);
+  const arr = new Array(amount).fill('');
+  const boxesEl = arr.map(el => {
+    const boxEl = document.createElement('div');
+    boxEl.textContent = el;
+    return boxEl;
+  });
 
-  return arr;
+  return boxesEl;
 }
 
-function onRenderBtnClick(event) {
-  refs.divBoxes.append(...createBoxes());
+function onInputChange(event) {
+  // console.log(event.currentTarget.value);
+
+  const amount = Number(event.currentTarget.value);
+
+  console.log(createBoxes(amount));
+}
+
+function onRenderBtnClick() {
+  refs.divBoxes.append(...createBoxes(amount));
   console.log(refs.divBoxes);
+  return refs.divBoxes;
 }
 
-function destroyBoxes() {}
-
-function onInputEnter(event) {
-  const amount = event.currentTarget.value;
-  console.log(amount);
-  return amount;
+function onDestroyBtnClick() {
+  console.log('нажали кнопку Очистить');
 }

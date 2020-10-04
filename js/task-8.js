@@ -29,7 +29,8 @@ function onInputChange(event) {
 }
 
 function onRenderBtnClick() {
-  refs.divBoxes.append(...createBoxes(amount));
+  console.log(refs.input.value);
+  refs.divBoxes.append(...createBoxes(Number(refs.input.value)));
   console.log(refs.divBoxes);
   return refs.divBoxes;
 }

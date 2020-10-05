@@ -46,13 +46,14 @@ function onRenderBtnClick() {
   const createdDivBoxes = refs.divBoxes.children;
   console.log(createdDivBoxes);
 
-  for (let i = 0; i < createdDivBoxes.length; i += 1) {
-    const boxWidth = 30;
-    const boxHeight = 30;
-    createdDivBoxes[i].style.backgroundColor = getRandomColor();
-    createdDivBoxes[i].style.width = `${boxWidth + 10}px`;
-    createdDivBoxes[i].style.height = `${boxHeight + 10}px`;
-  }
+  let initSize = 30;
+
+  Array.from(createdDivBoxes).map(createdDivBox => {
+    initSize += 10;
+    createdDivBox.style.backgroundColor = getRandomColor();
+    createdDivBox.style.width = `${initSize}px`;
+    createdDivBox.style.height = `${initSize}px`;
+  });
 
   return refs.divBoxes;
 }
